@@ -1,0 +1,20 @@
+{% extends 'base.html' %}{% block title %}New Students – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">Welcome</div><h1>New Students</h1><p>Everything you need to know before your first lesson.</p>{% endblock %}
+{% block content %}
+<h2 class="section-title">Training Goals</h2><div class="divider"></div>
+<div class="goals-list">
+  <div class="goal-item"><div class="gicon">🏅</div><div><strong>Spatial Intuition & Rapid Reflex</strong><p>Reinforce your ability to read the court and react instinctively.</p></div></div>
+  <div class="goal-item"><div class="gicon">🏅</div><div><strong>Body & Racket Position</strong><p>Create awareness of proper stance, grip, and racket angle.</p></div></div>
+  <div class="goal-item"><div class="gicon">🏅</div><div><strong>Form & Technique Foundation</strong><p>Strengthen a solid, repeatable foundation for every stroke.</p></div></div>
+  <div class="goal-item"><div class="gicon">🏅</div><div><strong>Control, Strategy & Match Play</strong><p>Focus on where to hit, when to attack, and how to think competitively.</p></div></div>
+</div>
+<div class="info-block" style="margin-top:36px;"><h2>⚡ Match Play Development</h2><div class="divider"></div><ul>
+  <li><span>✅</span><div>Build confidence for each stroke through repetition and positive reinforcement</div></li>
+  <li><span>✅</span><div>Improve spatial aptitude with shot comprehension and court awareness drills</div></li>
+  <li><span>✅</span><div>Develop skill in preparation, contact, and recovery</div></li>
+  <li><span>✅</span><div>Engage muscle memory to increase consistency under pressure</div></li>
+  <li><span>✅</span><div>Boost control to advance technique, strategy, and power progressively</div></li>
+</ul></div>
+<div class="court-banner" style="margin-top:36px;"><h2>Ready to Get Started?</h2><p>Coach Priyanka works with all ages and skill levels.</p><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;"><a href="{{ url_for('book_a_lesson') }}" class="btn btn-teal">Book a Lesson</a><a href="{{ url_for('contact') }}" class="btn btn-outline-w">Contact Coach</a></div></div>
+<div class="page-nav"><a href="{{ url_for('book_a_lesson') }}">⇦ Book a Lesson</a><a href="{{ url_for('private_tennis_lessons') }}">Private Lessons ⇨</a></div>
+{% endblock %}

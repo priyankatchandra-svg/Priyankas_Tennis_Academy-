@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block title %}Awards Ceremony – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">Celebrations</div><h1>Awards Ceremony</h1><p>Recognizing our students' dedication and growth on the court.</p>{% endblock %}
+{% block content %}
+<h2 class="section-title">🏅 Student Recognition</h2><div class="divider"></div>
+{% if awards %}<div class="awards-grid">{% for a in awards %}<div class="award-card"><div class="trophy">🏆</div><div class="student">{{ a.student_name }}</div><h3>{{ a.award_title }}</h3><div class="date">📅 {{ a.ceremony_date }}</div>{% if a.description %}<p>{{ a.description }}</p>{% endif %}</div>{% endfor %}</div>
+{% else %}<div class="info-block" style="text-align:center;padding:52px;"><div style="font-size:3.5rem;margin-bottom:16px;">🏆</div><h3>Awards Coming Soon</h3><p style="color:var(--mid);margin-top:8px;">Check back after our next ceremony!</p></div>{% endif %}
+<div class="page-nav"><a href="{{ url_for('progress_reports') }}">⇦ Progress Reports</a><a href="{{ url_for('usta_tournaments') }}">USTA Tournaments ⇨</a></div>
+{% endblock %}

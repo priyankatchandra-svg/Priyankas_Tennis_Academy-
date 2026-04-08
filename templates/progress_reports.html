@@ -1,0 +1,24 @@
+{% extends 'base.html' %}{% block title %}Progress Reports – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">Track Progress</div><h1>Progress Reports</h1><p>Coach Priyanka tracks development across seven key skill areas.</p>{% endblock %}
+{% block content %}
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="pr-grid">
+  <div class="info-block" style="margin-bottom:0;"><h2 style="font-size:1.35rem;">🔍 View Your Report</h2><div class="divider"></div>
+    <p style="color:var(--mid);margin-bottom:18px;font-size:.88rem;">Enter your registered email to access your latest progress reports.</p>
+    <form method="POST" action="{{ url_for('lookup_progress') }}">
+      <div class="form-group"><label>Your Email</label><input type="email" name="email" required placeholder="you@email.com"></div>
+      <button type="submit" class="btn btn-teal btn-block">View My Reports</button>
+    </form>
+  </div>
+  <div class="info-block" style="margin-bottom:0;"><h2 style="font-size:1.35rem;">📋 Skills Tracked</h2><div class="divider"></div><ul>
+    <li><span>🎾</span><div>Forehand — Power, consistency & spin</div></li>
+    <li><span>🎾</span><div>Backhand — Technique & control</div></li>
+    <li><span>⬆️</span><div>Serve — Ball toss & placement</div></li>
+    <li><span>⚡</span><div>Volley — Net play & reflexes</div></li>
+    <li><span>👟</span><div>Footwork — Split step & recovery</div></li>
+    <li><span>🧠</span><div>Strategy — Shot selection & tactics</div></li>
+    <li><span>🔄</span><div>Consistency — Error rate & rally</div></li>
+  </ul></div>
+</div>
+<div class="page-nav" style="margin-top:36px;"><a href="{{ url_for('group_clinics') }}">⇦ Group Clinics</a><a href="{{ url_for('awards_ceremony') }}">Awards Ceremony ⇨</a></div>
+<style>@media(max-width:720px){.pr-grid{grid-template-columns:1fr!important;}}</style>
+{% endblock %}

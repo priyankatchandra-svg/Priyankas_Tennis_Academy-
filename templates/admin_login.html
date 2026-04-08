@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login – Priyanka's Tennis Academy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy);
+      padding: 24px;
+    }
+
+    .login-card {
+      background: var(--white);
+      border-radius: var(--r);
+      box-shadow: var(--sh-lg);
+      padding: 48px 44px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .login-logo {
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+
+    .login-brand {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--navy);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .login-sub {
+      font-size: .78rem;
+      color: var(--mid);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .login-card .form-group { text-align: left; }
+
+    .login-card .form-group input {
+      font-size: 1rem;
+      padding: 13px 16px;
+      border: 1.5px solid #DDE4E6;
+      border-radius: var(--r);
+      width: 100%;
+      font-family: var(--sans);
+      letter-spacing: .06em;
+    }
+
+    .login-card .form-group input:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(78,205,196,.15);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: .82rem;
+      letter-spacing: .12em;
+    }
+
+    .login-back {
+      display: block;
+      margin-top: 20px;
+      font-size: .78rem;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .login-back:hover { color: var(--teal-dkr); }
+
+    .flash-container {
+      width: 100%;
+      max-width: 420px;
+      margin-bottom: 16px;
+    }
+
+    .security-note {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--cream-dk);
+      font-size: .74rem;
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    .security-note span { color: var(--teal-dkr); }
+  </style>
+</head>
+<body>
+
+  <!-- Flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-container">
+        {% for cat, msg in messages %}
+          <div class="flash flash-{{ cat }}">{{ msg }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <div class="login-card">
+    <div class="login-logo">🎾</div>
+    <div class="login-brand">Priyanka's Tennis Academy</div>
+    <div class="login-sub">Admin Dashboard</div>
+
+    <form method="POST" action="{{ url_for('admin_login') }}">
+      <div class="form-group" style="margin-bottom:20px;">
+        <label style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:8px;">
+          Password
+        </label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter admin password"
+          autofocus
+          autocomplete="current-password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-teal login-btn">
+        Log In to Dashboard →
+      </button>
+    </form>
+
+    <a href="{{ url_for('book_a_lesson') }}" class="login-back">
+      ← Back to public site
+    </a>
+
+    <div class="security-note">
+      🔒 This area is private.<br>
+      Access restricted to <span>Coach Priyanka</span> only.
+    </div>
+  </div>
+
+</body>
+</html>

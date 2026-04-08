@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block title %}About – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">Coach Profile</div><h1>Coach Priyanka</h1><p>20+ years of tennis experience · Saratoga Country Club · Founded June 2020</p>{% endblock %}
+{% block content %}
+<div class="court-banner"><h2>Priyanka's Tennis Academy</h2><p>Established June 2020 — born out of a desire to build community and promote well-being through tennis during challenging times.</p></div>
+<div class="info-block"><h2>🏛️ Established</h2><div class="divider"></div><p>In June 2020 amidst the peak of the Covid-19 pandemic, Priyanka's Tennis Academy emerged as a sanctuary for individuals seeking outdoor activities during an era of social distancing. Graduating within the pandemic's early months — from the first collegiate class of Corona — Coach Priyanka had a strong desire to prioritize mental health and well-being.</p></div>
+<div class="info-block"><h2>🎯 Mission</h2><div class="divider"></div><p>Coach Priyanka's mission is to provide personalized coaching tailored to individual needs, fostering a love for the sport and promoting mental well-being through physical activity. Through strategic partnerships as Lead Tennis Coach at the prestigious <strong>Saratoga Country Club</strong>, Priyanka's Tennis Academy offers exclusive access to top-notch facilities.</p></div>
+<div class="info-block"><h2>💡 Philosophy</h2><div class="divider"></div><p>With a coaching philosophy grounded in <strong>discovery, empathy, and a relentless pursuit of iteration</strong>, Coach Priyanka is dedicated to helping students achieve their tennis goals. With a focus on human-centered design principles, Coach Priyanka inspires creativity and fosters a deep understanding of the game.</p></div>
+<div class="info-block"><h2>🏆 Background</h2><div class="divider"></div><ul>
+  <li><span>🎾</span><div><strong>20+ years</strong> of competitive tennis experience starting at age 6</div></li>
+  <li><span>🏫</span><div><strong>Coaching since age 14</strong> — local clubs through collegiate organizations</div></li>
+  <li><span>🏅</span><div>Competed in <strong>USTA Championships & Sectionals</strong></div></li>
+  <li><span>📍</span><div>Lead Tennis Coach at <strong>Saratoga Country Club</strong>, Saratoga, CA</div></li>
+</ul></div>
+<div style="text-align:center;margin-top:36px;"><a href="{{ url_for('book_a_lesson') }}" class="btn btn-teal btn-lg">🎾 Book a Lesson</a></div>
+<div class="page-nav"><a href="{{ url_for('contact') }}">⇦ Contact</a><a href="{{ url_for('design_x_tennis') }}">Design x Tennis ⇨</a></div>
+{% endblock %}

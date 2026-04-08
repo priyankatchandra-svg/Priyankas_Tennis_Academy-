@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Priyanka's Tennis Academy{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-row1">
+    <a class="brand" href="{{ url_for('book_a_lesson') }}">Priyanka's Tennis Academy</a>
+    <a class="nav-admin-link" href="{{ url_for('admin_login') }}">📋 Bookings Admin</a>
+  </div>
+  <div class="topnav-row2">
+    <div class="topnav-row2-inner">
+      <button class="hamburger" id="hamburger">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="{{ url_for('book_a_lesson') }}"          {% if request.endpoint in ('book_a_lesson','index') %}class="active"{% endif %}>Book a Lesson</a></li>
+        <li><a href="{{ url_for('new_students') }}"           {% if request.endpoint=='new_students' %}class="active"{% endif %}>New Students</a></li>
+        <li><a href="{{ url_for('private_tennis_lessons') }}" {% if request.endpoint=='private_tennis_lessons' %}class="active"{% endif %}>Private Tennis Lessons</a></li>
+        <li><a href="{{ url_for('group_clinics') }}"          {% if request.endpoint=='group_clinics' %}class="active"{% endif %}>Group Clinics</a></li>
+        <li><a href="{{ url_for('progress_reports') }}"       {% if request.endpoint=='progress_reports' %}class="active"{% endif %}>Progress Reports</a></li>
+        <li><a href="{{ url_for('awards_ceremony') }}"        {% if request.endpoint=='awards_ceremony' %}class="active"{% endif %}>Awards Ceremony</a></li>
+        <li><a href="{{ url_for('usta_tournaments') }}"       {% if request.endpoint=='usta_tournaments' %}class="active"{% endif %}>NorCal USTA Tournaments</a></li>
+        <li><a href="{{ url_for('contact') }}"                {% if request.endpoint=='contact' %}class="active"{% endif %}>Contact</a></li>
+        <li><a href="{{ url_for('about') }}"                  {% if request.endpoint=='about' %}class="active"{% endif %}>About</a></li>
+        <li><a href="{{ url_for('design_x_tennis') }}"        {% if request.endpoint=='design_x_tennis' %}class="active"{% endif %}>Design x Tennis</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-container">
+      {% for cat, msg in messages %}
+        <div class="flash flash-{{ cat }}">{{ msg }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="inner-hero">
+  {% block inner_hero_content %}{% endblock %}
+</div>
+
+<main class="page-main">{% block content %}{% endblock %}</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-brand">Priyanka's Tennis Academy</p>
+    <nav class="footer-nav">
+      <a href="{{ url_for('book_a_lesson') }}">Book a Lesson</a>
+      <a href="{{ url_for('group_clinics') }}">Classes</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+      <a href="{{ url_for('about') }}">About</a>
+    </nav>
+    <div class="footer-address">
+      <span>📍 123 Tennis Lane, Sportsville, CA</span>
+      <span>📞 (408) 356-1967</span>
+      <span>✉️ hello@priyankas.tennis</span>
+    </div>
+    <p class="footer-copy">&copy; {{ now.year }} Priyanka's Tennis Academy</p>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

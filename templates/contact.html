@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% block title %}Contact – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">Get in Touch</div><h1>Contact</h1><p>Questions? Ready to enroll? Coach Priyanka would love to hear from you.</p>{% endblock %}
+{% block content %}
+<div class="contact-grid">
+  <div>
+    <h2 class="section-title">Reach Coach Priyanka</h2><div class="divider"></div>
+    <div class="contact-item"><div class="ci-icon">📞</div><div><h4>Phone / Text</h4><p>(408) 356-1967</p></div></div>
+    <div class="contact-item"><div class="ci-icon">📍</div><div><h4>Location</h4><p>Saratoga Country Club, Saratoga, CA</p></div></div>
+    <div class="contact-item"><div class="ci-icon">👥</div><div><h4>Group Clinics</h4><p>Text: <strong>(408) 356-1967</strong><br><small style="color:var(--mid);">Junior (10–17) · Youth (4–9)</small></p></div></div>
+    <div style="margin-top:20px;padding:20px 22px;background:var(--navy);border-radius:var(--r);color:#fff;">
+      <p style="color:var(--teal);font-weight:700;margin-bottom:6px;">🎾 Book Online</p>
+      <p style="font-size:.84rem;opacity:.7;margin-bottom:14px;">Pick your date and time — instant confirmation saved to the database.</p>
+      <a href="{{ url_for('book_a_lesson') }}" class="btn btn-teal btn-sm">Open Booking →</a>
+    </div>
+  </div>
+  <div class="info-block" style="margin-bottom:0;">
+    <h2 style="font-size:1.4rem;">✉️ Send a Message</h2><div class="divider"></div>
+    <form method="POST" action="{{ url_for('contact') }}">
+      <div class="form-row"><div class="form-group"><label>Full Name *</label><input type="text" name="name" required></div><div class="form-group"><label>Email *</label><input type="email" name="email" required></div></div>
+      <div class="form-row"><div class="form-group"><label>Phone</label><input type="tel" name="phone"></div><div class="form-group"><label>Subject</label><select name="subject"><option>Private Lesson Inquiry</option><option>Group Clinic Enrollment</option><option>Pricing Question</option><option>Tournament Prep</option><option>General Question</option></select></div></div>
+      <div class="form-group"><label>Message *</label><textarea name="message" required></textarea></div>
+      <button type="submit" class="btn btn-teal btn-block">Send Message</button>
+    </form>
+  </div>
+</div>
+<div class="page-nav"><a href="{{ url_for('usta_tournaments') }}">⇦ USTA Tournaments</a><a href="{{ url_for('about') }}">About ⇨</a></div>
+{% endblock %}

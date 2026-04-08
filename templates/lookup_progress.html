@@ -1,0 +1,13 @@
+{% extends 'base.html' %}{% block title %}My Progress – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">Progress</div><h1>My Progress Reports</h1>{% endblock %}
+{% block content %}
+<a href="{{ url_for('progress_reports') }}" class="btn btn-outline btn-sm" style="margin-bottom:22px;">← Back</a>
+{% if student_name %}<h2 class="section-title">📈 {{ student_name }}</h2><div class="divider"></div>
+  {% if reports %}{% for r in reports %}<div class="info-block">
+    <h3 style="font-size:.95rem;margin-bottom:14px;color:var(--mid);">Report Date: {{ r.report_date }}</h3>
+    {% for skill, val in [('Forehand',r.forehand),('Backhand',r.backhand),('Serve',r.serve),('Volley',r.volley),('Footwork',r.footwork),('Strategy',r.strategy),('Consistency',r.consistency)] %}
+    <div class="score-bar-wrap"><div class="score-label"><span>{{ skill }}</span><span>{{ val }}/10</span></div><div class="score-bar"><div class="score-fill" style="width:{{ (val/10)*100 }}%"></div></div></div>{% endfor %}
+    {% if r.notes %}<div style="margin-top:12px;padding:11px 14px;background:rgba(78,205,196,.08);border-radius:var(--r);font-size:.86rem;">💬 <strong>Coach Notes:</strong> {{ r.notes }}</div>{% endif %}
+  </div>{% endfor %}{% else %}<p>No reports on file yet.</p>{% endif %}
+{% else %}<form method="POST"><div class="info-block"><h2 style="font-size:1.3rem;">🔍 Enter Your Email</h2><div class="divider"></div><div class="form-group"><label>Email Address</label><input type="email" name="email" required placeholder="you@email.com"></div><button type="submit" class="btn btn-teal">View My Reports</button></div></form>{% endif %}
+{% endblock %}

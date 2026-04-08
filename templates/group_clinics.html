@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block title %}Group Clinics – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">Group Training</div><h1>Group Clinics</h1><p>Structured group sessions for Juniors and Youth players.</p>{% endblock %}
+{% block content %}
+<h2 class="section-title">Choose Your Clinic</h2><div class="divider"></div><p class="section-subtitle">To enroll, text Coach Priyanka at <strong>(408) 356-1967</strong>.</p>
+<div class="lesson-grid">
+  <div class="lesson-card"><div class="emoji">🏸</div><h3>Junior Group Clinic</h3><div class="price-tag">Ages 10–17 · $35/session</div><p>Competitive group training in a collaborative environment alongside peers at similar levels.</p><ul><li>Advanced stroke mechanics</li><li>Point construction</li><li>Serve & volley</li><li>USTA tournament prep</li></ul><div style="padding:12px 14px;background:rgba(78,205,196,.1);border-left:3px solid var(--teal);border-radius:var(--r);font-size:.85rem;margin-top:14px;">📞 <strong>Enroll:</strong> Text (408) 356-1967</div></div>
+  <div class="lesson-card"><div class="emoji">⭐</div><h3>Youth Group Clinic</h3><div class="price-tag">Ages 4–9 · $30/session</div><p>Fun introduction to tennis — games and age-appropriate exercises that build a lifelong love of the sport.</p><ul><li>Eye-hand coordination</li><li>Balance & movement</li><li>Racket control</li><li>Cooperative play</li></ul><div style="padding:12px 14px;background:rgba(78,205,196,.1);border-left:3px solid var(--teal);border-radius:var(--r);font-size:.85rem;margin-top:14px;">📞 <strong>Enroll:</strong> Text (408) 356-1967</div></div>
+</div>
+<div class="page-nav"><a href="{{ url_for('private_tennis_lessons') }}">⇦ Private Lessons</a><a href="{{ url_for('progress_reports') }}">Progress Reports ⇨</a></div>
+{% endblock %}

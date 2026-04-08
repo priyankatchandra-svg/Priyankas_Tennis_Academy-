@@ -1,0 +1,17 @@
+{% extends 'base.html' %}{% block title %}Private Tennis Lessons – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">1:1 Coaching</div><h1>Private Tennis Lessons</h1><p>Personalized coaching at Saratoga Country Club.</p>{% endblock %}
+{% block content %}
+<h2 class="section-title">Choose Your Session</h2><div class="divider"></div>
+<div class="lesson-grid">
+  <div class="lesson-card"><div class="emoji">🧒</div><h3>Junior 1:1</h3><div class="price-tag">Ages 4–17 · $80/hr</div><p>One-on-one sessions building fundamentals while keeping every lesson fun.</p><ul><li>Footwork & coordination</li><li>Stroke mechanics</li><li>Serve development</li><li>Match play</li></ul><a href="{{ url_for('book_a_lesson') }}" class="btn btn-teal btn-block">Book Junior Lesson</a></div>
+  <div class="lesson-card"><div class="emoji">🎯</div><h3>Adult 1:1</h3><div class="price-tag">Ages 18+ · $90/hr</div><p>Fully customized to your goals — beginner to competitive level.</p><ul><li>Technique refinement</li><li>Strategy & tactics</li><li>Fitness & movement</li><li>Tournament prep</li></ul><a href="{{ url_for('book_a_lesson') }}" class="btn btn-teal btn-block">Book Adult Lesson</a></div>
+  <div class="lesson-card"><div class="emoji">👫</div><h3>Semi-Private 2:1</h3><div class="price-tag">Any age · $60/hr each</div><p>Train with a friend or family member — split the cost, keep personal focus.</p><ul><li>Couples or siblings</li><li>Competitive drills</li><li>Doubles strategy</li><li>Individual feedback</li></ul><a href="{{ url_for('book_a_lesson') }}" class="btn btn-teal btn-block">Book Semi-Private</a></div>
+</div>
+<div class="info-block" style="margin-top:36px;"><h2>📍 Location & Details</h2><div class="divider"></div><ul>
+  <li><span>📍</span><div><strong>Saratoga Country Club</strong> — exclusive access through Coach Priyanka's partnership</div></li>
+  <li><span>⏱️</span><div>Sessions typically <strong>60 minutes</strong> (90 min or 2 hrs by arrangement)</div></li>
+  <li><span>🎾</span><div>Balls and teaching equipment provided — just bring your racket</div></li>
+  <li><span>📞</span><div>Questions? Text <strong>(408) 356-1967</strong></div></li>
+</ul></div>
+<div class="page-nav"><a href="{{ url_for('new_students') }}">⇦ New Students</a><a href="{{ url_for('group_clinics') }}">Group Clinics ⇨</a></div>
+{% endblock %}

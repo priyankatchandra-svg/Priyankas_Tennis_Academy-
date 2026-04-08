@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block title %}NorCal USTA Tournaments – Priyanka's Tennis Academy{% endblock %}
+{% block inner_hero_content %}<div class="inner-badge">Compete</div><h1>NorCal USTA Tournaments</h1><p>Everything you need to enter your first — or next — junior tournament.</p>{% endblock %}
+{% block content %}
+<div class="card-grid" style="margin-bottom:44px;">
+  <a href="https://www.usta.com/en/home/play/youth-tennis/programs/northerncalifornia/junior-competition.html" target="_blank" class="card card-teal" style="text-decoration:none;"><div class="card-body"><div class="card-icon">📖</div><h3>Beginner's Guide</h3><p>Everything for your first tournament.</p><span class="btn btn-teal btn-sm" style="margin-top:14px;">USTA NorCal →</span></div></a>
+  <a href="https://www.usta.com/en/home/play/youth-tennis/programs/national/about-junior-tournaments.html" target="_blank" class="card card-teal" style="text-decoration:none;"><div class="card-body"><div class="card-icon">📝</div><h3>Enrollment + Rules</h3><p>How to sign up and what to expect.</p><span class="btn btn-teal btn-sm" style="margin-top:14px;">Get Started →</span></div></a>
+  <a href="https://playtennis.usta.com/tournaments" target="_blank" class="card card-teal" style="text-decoration:none;"><div class="card-body"><div class="card-icon">📅</div><h3>Tournament Schedule</h3><p>18 & Under Girls + Boys, Level 7–1.</p><span class="btn btn-teal btn-sm" style="margin-top:14px;">View Schedule →</span></div></a>
+</div>
+<h2 class="section-title">Upcoming Tournaments</h2><div class="divider"></div>
+{% if tournaments %}<div class="table-wrap"><table><thead><tr><th>Tournament</th><th>Location</th><th>Date</th><th>Level</th><th>Age Group</th><th>Deadline</th><th>Register</th></tr></thead><tbody>
+{% for t in tournaments %}<tr><td><strong>{{ t.name }}</strong></td><td>{{ t.location }}</td><td>{{ t.date }}</td><td><span class="badge badge-teal">{{ t.level }}</span></td><td>{{ t.age_group }}</td><td>{{ t.registration_deadline }}</td><td>{% if t.usta_link %}<a href="{{ t.usta_link }}" target="_blank" class="btn btn-teal btn-sm">Register →</a>{% else %}—{% endif %}</td></tr>{% endfor %}
+</tbody></table></div>{% else %}<p style="color:var(--mid);">Check <a href="https://playtennis.usta.com/tournaments" target="_blank" style="color:var(--teal-dkr);">USTA.com</a> for the latest NorCal schedule.</p>{% endif %}
+<div class="court-banner" style="margin-top:36px;"><h2>Ready to Compete?</h2><p>Coach Priyanka provides tournament prep to help students compete with confidence.</p><a href="{{ url_for('book_a_lesson') }}" class="btn btn-teal" style="margin-top:18px;">Book Tournament Prep</a></div>
+<div class="page-nav"><a href="{{ url_for('awards_ceremony') }}">⇦ Awards Ceremony</a><a href="{{ url_for('contact') }}">Contact ⇨</a></div>
+{% endblock %}
